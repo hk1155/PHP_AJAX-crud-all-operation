@@ -698,7 +698,6 @@ function savejsondata() {
   });
 }
 
-
 function filePreview(input) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();
@@ -760,21 +759,13 @@ function fnpdf(uid) {
 
 //===================================
 
-
-
 function fnadd() {
   // alert('okok');
   var i = 0;
   i++;
-   $('#dynamic_field').append('<tr id="row' + i + '"><td><input type="text" name="name[]" placeholder="Enter your Name" class="form-control name_list" /></td><td><input type="number" onkeypress="fnprice()" name="number[]" placeholder="Enter your Price" id="price" class="form-control name_list" /></td><td><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn_remove">X</button></td></tr>');
-  
+  $('#dynamic_field').append('<tr id="row' + i + '"><td><input type="text" name="name[]" placeholder="Enter your Name" class="form-control name_list" /></td><td><input type="number"  name="number[]" placeholder="Enter your Price" id="price" class="form-control name_list" /></td><td><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn_remove">X</button></td></tr>');
 
-}
 
-function fnprice()
-{
-  var pr=$("#price").val();
-  alert(pr);
 }
 
 
@@ -782,8 +773,8 @@ $(document).ready(function () {
 
   $(document).on('click', '.btn_remove', function () {
     var button_id = $(this).attr("id");
-    
-     $('#row' + button_id + '').remove();
+
+    $('#row' + button_id + '').remove();
   });
   $('#submit').click(function () {
     $.ajax({
