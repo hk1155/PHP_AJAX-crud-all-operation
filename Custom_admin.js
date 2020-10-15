@@ -405,7 +405,7 @@ function userinsert() {
           $("#error").show();
           $("#btnsend").hide();
           $("#success").hide();
-          $('#error').html('Password is not matched to conform password');
+          $('#error').html('Please Check Your Password It\'s not Match');
           $('#errmsg').hide();
         }
         else if (result == 4) {
@@ -626,16 +626,15 @@ function btnUpdateUser() {
   var gender = $("#gender").val();
   var contact = $("#txtcontact").val();
   var hid = $("#hid").val();
-  //alert(city);
+  //alert(gender);
 
   if (name != "" && city != "" && gender != "" && contact != "" && hid != "") {
     $.ajax({
-
       url: "my_update_ajax.php",
       type: 'POST',
       data: { username: name, city: city, gender: gender, contact: contact, hid: hid },
       success: function (result) {
-        //alert(result);
+        alert(result);
         if (result == 1) {
           location.href = "view_data.php";
         }
@@ -645,7 +644,8 @@ function btnUpdateUser() {
         }
         else {
           $('#msgerruser').show();
-          $('#msgerruser').html('Something Went Wrong!!');
+          //$('#msgerruser').html('Something Went Wrong!!');
+          $('#msgerruser').html(result);
         }
       }
 

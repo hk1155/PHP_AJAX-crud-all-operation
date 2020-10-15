@@ -1,4 +1,4 @@
 <?php
 
-	$con= mysqli_connect('localhost','root','','new_demo');	
+$con = mysqli_connect('localhost', 'root', '', 'new_demo');
 ?>

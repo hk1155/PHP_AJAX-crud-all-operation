@@ -41,22 +41,19 @@
 
 <!--Local Stuff-->
 <script>
-    
-//Data tables
-    $(document).ready(function () {
+    //Data tables
+    $(document).ready(function() {
         $('#bootstrap-data-table-export').DataTable();
     });
-    
-    $(document).ready(function () {
-        $("#hide").click(function () {
+
+    $(document).ready(function() {
+        $("#hide").click(function() {
             $("p").hide();
         });
-        $("#show").click(function () {
+        $("#show").click(function() {
             $("p").show();
         });
     });
-
-   
-</script>  
+</script>
 
 <script src="Custom_admin.js"></script>

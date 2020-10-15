@@ -40,7 +40,7 @@ if (isset($_SESSION['semailadmin'])) {
 
                         <div style="float: right;">
                             <p>Total Price: </p>
-                            
+
                             <a href="decode" style="color: green;">Decode Data</a>
                         </div>
                     </div>
@@ -59,7 +59,7 @@ if (isset($_SESSION['semailadmin'])) {
                                 <table class="table table-bordered" id="dynamic_field">
                                     <tr>
                                         <td><input type="text" name="name[]" id="name" placeholder="Enter your Name" class="form-control name_list" /></td>
-                                        <td><input type="number" name="number[]" placeholder="Enter Price" id="price"  class="form-control name_list" /></td>
+                                        <td><input type="number" name="number[]" placeholder="Enter Price" id="price" class="form-control name_list" /></td>
                                         <td><button type="button" name="add" id="add" onclick="fnadd()" class="btn btn-success">Add More</button></td>
                                     </tr>
                                 </table>

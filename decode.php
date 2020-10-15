@@ -8,33 +8,32 @@ if (isset($_SESSION['semailadmin'])) {
     header('Location:index.php');
 }
 
-$query="select * from tbl_name";
-$result=mysqli_query($con,$query);
+$query = "select * from tbl_name";
+$result = mysqli_query($con, $query);
 
 //$myary= array(array(1,2,3),"hetul","patel");
 //echo $myary[1][0];
 //exit();
 
-if($result)
-{
-	while($row=mysqli_fetch_assoc($result))
-	{
-		$myary[]=$row;
-	}
+if ($result) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $myary[] = $row;
+    }
 
-	print_r($myary);
-	echo "<br>";echo "<br>";echo "<br>";
-	$e=json_encode($myary);
-	echo $e;
-	echo "<br>";
+    print_r($myary);
     echo "<br>";
-    
-	
-	// $d =json_decode($e);
+    echo "<br>";
+    echo "<br>";
+    $e = json_encode($myary);
+    echo $e;
+    echo "<br>";
+    echo "<br>";
+
+
+    // $d =json_decode($e);
     // print_r($d);
     // echo ['total'][0];
     exit();
-
 }
 
 ?>

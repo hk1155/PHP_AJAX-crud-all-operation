@@ -8,33 +8,32 @@
         </div>
     </div>
     <?php
-    if(isset($_SESSION['sname']))
-    {
-        ?>
+    if (isset($_SESSION['sname'])) {
+    ?>
 
         <div class="top-right">
-        <div class="header-menu">
-           <div class="user-area dropdown float-right">
-                <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <?php
-                    echo ucfirst($_SESSION['sname']);
+            <div class="header-menu">
+                <div class="user-area dropdown float-right">
+                    <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <?php
+                        echo ucfirst($_SESSION['sname']);
 
-                    ?>
-                    &nbsp;<img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
-                </a>
+                        ?>
+                        &nbsp;<img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
+                    </a>
 
-                <div class="user-menu dropdown-menu">
-                    <a class="nav-link" href="logout.php"><i class="fa fa-power -off"></i>Logout</a>
+                    <div class="user-menu dropdown-menu">
+                        <a class="nav-link" href="logout.php"><i class="fa fa-power -off"></i>Logout</a>
+                    </div>
                 </div>
-            </div>
 
+            </div>
         </div>
-    </div>
-        <?php
+    <?php
 
     }
 
     ?>
-    
+
 
 </header>

@@ -65,55 +65,60 @@ if(isset($_POST['btnlogin']))
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
-    <head>
-        <?php  
-        include_once 'Head_admin.php';
-        ?>
-        </head>
-    <body class="bg-light">
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
 
-        <div class="sufee-login d-flex align-content-center flex-wrap">
-            <div class="container">
-                <div class="login-content">
-                    <div class="login-logo">
-                        <a href="index.php">
-                            <img class="align-content" src="images/logo.png" alt="">
-                        </a>
-                    </div>
-                    <div class="login-form">
-                        <form method="post">
-                            <div class="form-group">
-                                <label>Email address</label>
-                                <input type="email" class="form-control" id="txtemail" name="txtemail" placeholder="Email">
-                            </div>
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input type="password" name="txtpassword" id="txtpassword" class="form-control" placeholder="Password">
-                            </div>
-                            
-                            <input type="button" value="Sign in" name="btnlogin" onclick="fnlogin()" class="btn btn-success btn-flat m-b-30 m-t-30">
+<head>
+    <?php
+    include_once 'Head_admin.php';
+    ?>
+</head>
 
-                            <!-- <input type="button" name="btntest" id="btntest"  value="Test"> -->
+<body class="bg-light">
 
-                            <div class="register-link m-t-15 text-center">
-                                <p>Don't have account ? <a href="add_data.php"> Sign Up Here</a></p>
-                            </div>
-                            <div class="alert alert-danger" style="display: none;" id="errloginmsg">
-                              
-                            </div>
-							 
-						
-                        </form>
-                    </div>
+    <div class="sufee-login d-flex align-content-center flex-wrap">
+        <div class="container">
+            <div class="login-content">
+                <div class="login-logo">
+                    <a href="index.php">
+                        <img class="align-content" src="images/logo.png" alt="">
+                    </a>
+                </div>
+                <div class="login-form">
+                    <form method="post">
+                        <div class="form-group">
+                            <label>Email address</label>
+                            <input type="email" class="form-control" id="txtemail" name="txtemail" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" name="txtpassword" id="txtpassword" class="form-control" placeholder="Password">
+                        </div>
+
+                        <input type="button" value="Sign in" name="btnlogin" onclick="fnlogin()" class="btn btn-success btn-flat m-b-30 m-t-30">
+
+                        <!-- <input type="button" name="btntest" id="btntest"  value="Test"> -->
+
+                        <div class="register-link m-t-15 text-center">
+                            <p>Don't have account ? <a href="add_data.php"> Sign Up Here</a></p>
+                        </div>
+                        <div class="alert alert-danger" style="display: none;" id="errloginmsg">
+
+                        </div>
+
+
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
 
-        <?php
-        include_once 'Script_admin.php';
-        ?>
-        <script src="assets/js/main.js"></script>
+    <?php
+    include_once 'Script_admin.php';
+    ?>
+    <script src="assets/js/main.js"></script>
 
-    </body>
+</body>
+
 </html>

@@ -7,7 +7,7 @@ $x = array_sum($_POST['number']);
 $h = json_encode($_POST['name']);
 
 
-if ($x!="" && $h!=null) {
+if ($x != "" && $h != null) {
     $sql = "INSERT INTO tbl_name(name,total) VALUES('" . $h . "','" . $x . "')";
     $result = mysqli_query($con, $sql);
 
@@ -16,8 +16,7 @@ if ($x!="" && $h!=null) {
     } else {
         print_r($sql);
     }
-}
-else{
+} else {
     echo "Please Enter The Field";
 }
 
