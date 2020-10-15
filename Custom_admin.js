@@ -757,13 +757,13 @@ function fnpdf(uid) {
   // })
 }
 
-//===================================
+//=================Add more Functionality==================
 
 function fnadd() {
   // alert('okok');
   var i = 0;
   i++;
-  $('#dynamic_field').append('<tr id="row' + i + '"><td><input type="text" name="name[]" placeholder="Enter your Name" class="form-control name_list" /></td><td><input type="number"  name="number[]" placeholder="Enter your Price" id="price" class="form-control name_list" /></td><td><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn_remove">X</button></td></tr>');
+  $('#dynamic_field').append('<tr id="row' + i + '"><td><input type="text" name="name[]" id="course" placeholder="Enter your Name" class="form-control name_list" /></td><td><input type="number"  name="number[]" placeholder="Enter your Price" id="price" class="form-control name_list" /></td><td><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn_remove">X</button></td></tr>');
 
 
 }
@@ -776,6 +776,7 @@ $(document).ready(function () {
 
     $('#row' + button_id + '').remove();
   });
+  
   $('#submit').click(function () {
     $.ajax({
       url: "my_ajax2.php",
@@ -788,4 +789,51 @@ $(document).ready(function () {
       }
     });
   });
-});  
+});
+//===========================================================
+
+
+function fnsavecourse() {
+
+  var course = $("#txtcourse").val();
+  var price = $("#txtprice").val();
+
+  if (course != "" && price != "") {
+
+    $.ajax({
+
+      url: "my_ajax.php",
+      method: 'POST',
+      data: { course: course, price: price },
+
+      success: function (result) {
+        //alert(result);
+        if (result == 1) {
+          $("#msg").show();
+          $("#msg").addClass('alert-success');
+          $("#txtcourse").val("");
+          $("#txtprice").val("");
+          $("#msg").html('Course Added Successfully');
+        }
+        else if (result == 2) {
+          $("#msg").show();
+          $("#txtcourse").val("");
+          $("#txtprice").val("");
+          $("#msg").addClass('alert-danger');
+          $("#msg").html('Course is Already Exists!!');
+        }
+      }
+
+
+
+    });
+
+  }
+  else {
+    alert("Please Fill The Details");
+  }
+}
+
+//=============================
+
+

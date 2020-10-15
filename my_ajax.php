@@ -400,5 +400,41 @@ if (isset($_POST['tempj'])) {
 //==============Add more functionality==================
 
 
+if (isset($_POST['course'])) {
+	$course = $_POST['course'];
+	$price = $_POST['price'];
+
+	$check = "SELECT * FROM tbl_course WHERE course='" . $course . "'";
+	$rescheck = mysqli_query($con, $check);
+	$row = mysqli_fetch_assoc($rescheck);
+
+
+	if ($row['course'] == $course) {
+		echo 2;
+		//Course is Already Exists
+	} else {
+		$insert = "INSERT INTO tbl_course(course,price) VALUES('" . $course . "','" . $price . "')";
+		$result = mysqli_query($con, $insert);
+
+		if ($result) {
+			echo 1;
+			//Record Inserted Successfully
+		} else {
+
+			echo 0;
+			//Something Went Wrong
+		}
+	}
+}
+
+if (isset($_POST['courseid'])) {
+	$cid = $_POST['courseid'];
+	$select = "SELECT price FROM tbl_course where cid='" . $cid . "'";
+	$res = mysqli_query($con, $select);
+	$row = mysqli_fetch_assoc($res);
+
+	echo $row['price'];
+}
+
 
 ?>

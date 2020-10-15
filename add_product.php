@@ -121,16 +121,8 @@ $rscat = mysqli_query($con, $select);
                                     <?php
                                         }
                                     }
-
-                                    ?>
+                                   ?>
                                 </select>
-
-
-
-                                <div class="row form-group">
-
-
-                                </div>
 
                                 <div class="row form-group">
 

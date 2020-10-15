@@ -39,6 +39,12 @@
                         <a href="coronaupdate"><i class="menu-icon fa fa-laptop"></i>Corona Update</a>
                     </li>
                     <li>
+                        <a href="manage_course"><i class="menu-icon fa fa-laptop"></i>Manage Course</a>
+                    </li>
+                    <li>
+                        <a href="student_course"><i class="menu-icon fa fa-laptop"></i>Student Admission</a>
+                    </li>
+                    <li>
                         <a href="addmore"><i class="menu-icon fa fa-laptop"></i>Multiple Products</a>
                     </li>
                     <!-- <li>

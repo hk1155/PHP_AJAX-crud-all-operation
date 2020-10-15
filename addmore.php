@@ -47,14 +47,7 @@ if (isset($_SESSION['semailadmin'])) {
                     <div class="card-body card-block">
                         <form name="add_name" id="add_name">
 
-                            <!-- <div class="row form-group" id="dynamic_field">
-
-                                <div class="col-12 col-md-4"><input type="text" name="name[]" id="name" placeholder="Enter your Name" class="form-control name_list" /></div>
-
-                                <div class="col-12 col-md-4"><input type="number" name="number[]" placeholder="Enter your Price" class="form-control name_list" /></div>
-
-                                <div class="col-12 col-md-4"><button type="button" name="add" id="add" onclick="fnadd()" class="btn btn-success">Add More</button></div>
-                            </div> -->
+                           
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dynamic_field">
                                     <tr>

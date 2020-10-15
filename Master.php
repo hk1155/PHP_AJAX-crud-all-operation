@@ -17,7 +17,15 @@
         ?>
         <div class="content pb-0">
             <section>
-                Master Page
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Here Your Page Name</strong>
+                        <a href="#" style="float: right;" class="btn btn-primary">Action Button</a>
+                    </div>
+                    <div class="card-body">
+                        <p>Form or table</p>
+                    </div>
+                </div>
             </section>
         </div>
         <div class="clearfix"></div>
