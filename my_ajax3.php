@@ -7,17 +7,21 @@ $stid = $_POST['ddstudent'];
 $x = array_sum($_POST['price']);
 $h = json_encode($_POST['course']);
 
+if ($stid == "") {
 
-
-if ($x != "" && $h != null && $stid!="") {
-    $sql = "INSERT INTO tbl_stcourse(stid,course,total,addon) VALUES('" . $stid . "','" . $h . "','" . $x . "','" . $curdate . "')";
-    $result = mysqli_query($con, $sql);
-
-    if ($result) {
-        echo 'Data Inserted';
-    } else {
-        print_r($sql);
-    }
+    echo 'Select The Name';
 } else {
-    echo "Please Enter The Field";
+    if ($x != null && $h != null) {
+        $sql = "INSERT INTO tbl_stcourse(stid,course,total,addon) VALUES('" . $stid . "','" . $h . "','" . $x . "','" . $curdate . "')";
+        $result = mysqli_query($con, $sql);
+
+        if ($result) {
+            echo 'Data Inserted';
+        } else {
+            print_r($sql);
+        }
+    } else {
+        echo "Please Enter The Field";
+    }
 }
+

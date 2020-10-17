@@ -11,6 +11,29 @@ function demo1() {
 }
 
 
+function fnuserdelete(id) {
+  //  alert(id);
+  if (confirm('Are You Sure Delete ?')) {
+    $.ajax({
+
+      url: 'my_ajax.php',
+      method: 'POST',
+      data: { userid: id },
+      success: function (result) {
+        //alert(result);
+        if (result == 1) {
+          $("#truser" + id).hide("slow");
+        }
+        else {
+
+          alert('Can\'t Delete User,course is Already Running');
+        }
+      }
+
+    });
+  }
+}
+
 // Add User page JS
 
 function fndemo() {
@@ -776,7 +799,7 @@ $(document).ready(function () {
 
     $('#row' + button_id + '').remove();
   });
-  
+
   $('#submit').click(function () {
     $.ajax({
       url: "my_ajax2.php",
@@ -836,4 +859,62 @@ function fnsavecourse() {
 
 //=============================
 
+function fngetprice() {
+  //alert('okok');
+  var c = $("#course").val();
+  // alert(c);
+  $.ajax({
 
+    url: 'my_ajax.php',
+    method: 'POST',
+    data: {
+      courseid: c
+    },
+    success: function (result) {
+      //alert(result);
+      $("#price").val(result);
+    }
+  });
+}
+
+function fncoursedelete(cid) {
+
+  if (confirm('Are You Sure Want to Delete ?')) {
+    $.ajax({
+
+      url: 'my_ajax4.php',
+      method: 'POST',
+      data: { corid: cid },
+      success: function (result) {
+        //alert(result);
+
+        if (result == 1) {
+          $("#trcourse" + cid).hide("slow");
+        }
+        else {
+          //alert(result);
+          alert('Course Is Already in Used');
+        }
+
+      }
+
+    })
+  }
+
+}
+
+function fnstatuscourse(courseid) {
+  //alert(id);
+
+  $.ajax({
+
+    url: "my_ajax.php",
+    type: 'POST',
+    data: { coursestatus: courseid },
+    success: function (result) {
+      //alert(result);
+      $("#toglecat" + courseid).html(result);
+    }
+
+  });
+}

@@ -47,12 +47,12 @@ $res = mysqli_query($con, $all);
                                 <?php
                                 while ($row = mysqli_fetch_assoc($res)) {
                                 ?>
-                                <tr>
-                                    <td><?php echo $row['cid'] ?></td>
-                                    <td><?php echo $row['course'] ?></td>
-                                    <td><?php echo $row['price'] ?></td>
-                                    <td><a href="#" style="color: red;;">Delete</a></td>
-                                </tr>
+                                    <tr id="trcourse<?php echo $row['cid'] ?>">
+                                        <td><?php echo $row['cid'] ?></td>
+                                        <td><?php echo $row['course'] ?></td>
+                                        <td><?php echo $row['price'] ?></td>
+                                        <td><a href="javascript:void(0);" onclick="fncoursedelete(<?php echo $row['cid']; ?>)" style="color: red;;">Delete</a></td>
+                                    </tr>
 
 
                                 <?php

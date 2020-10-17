@@ -13,17 +13,6 @@ $select = "select * from tbl_user order by id";
 
 $result = mysqli_query($con, $select);
 
-
-if (isset($_GET['did'])) {
-  $did = base64_decode($_GET['did']);
-  $sql = "DELETE FROM tbl_user WHERE id='" . $did . "'";
-  if (mysqli_query($con, $sql)) {
-    header("Location:view_data.php");
-  } else {
-    echo "Error deleting record: " . mysqli_error($con);
-  }
-}
-
 function Deleteall($con)
 {
   foreach ($_POST['cbdelete'] as $value) {
@@ -32,7 +21,15 @@ function Deleteall($con)
     if (mysqli_query($con, $delete)) {
       header('Location:view_data.php');
     } else {
-      echo "Something went Wrong";
+?>
+      <script>
+        $(document).ready(function() {
+
+          $("#msg").show();
+
+        });
+      </script>
+<?php
     }
   }
 }
@@ -91,6 +88,13 @@ if (isset($_GET['sid'])) {
 
       <section>
         <div class="animated fadeIn">
+          <div class="sufee-alert alert with-close alert-warning alert-dismissible fade show" id="msg" style="display: none;">
+            <span class="badge badge-pill badge-warning">Check</span>
+
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
           <div class="row">
 
             <div class="col-md-12">
@@ -121,7 +125,7 @@ if (isset($_GET['sid'])) {
                         if (mysqli_num_rows($result) > 0) {
                           while ($row = mysqli_fetch_assoc($result)) {
                         ?>
-                            <tr>
+                            <tr id="truser<?php echo $row['id']; ?>">
                               <td>
                                 <input type="checkbox" name="cbdelete[]" class="cbdelete" value="<?php echo $row['id'] ?>">
                               </td>
@@ -163,7 +167,7 @@ if (isset($_GET['sid'])) {
                               <td>
                                 <!-- <a href="#"><i class="fa fa-comment" style="color:black;"></i></a>&nbsp;&nbsp; -->
                                 <a href="https://api.whatsapp.com/send?phone=<?php echo '+91 ' . $row['contact']  ?>&text=<?php echo 'Your Mail ID:' . $row['email'];  ?>&source=&data=" target="_blank"><i class="fa fa-whatsapp" style="color:green;"></i></i>&nbsp;&nbsp;</a>
-                                <a href="view_data.php?did=<?php echo base64_encode($row["id"]); ?>"><i class="fa fa-trash" style="color:red;"></i></a>&nbsp;&nbsp;
+                                <a href="javascript:void(0);" onclick="fnuserdelete(<?php echo $row['id']; ?>)"><i class="fa fa-trash" style="color:red;"></i></a>&nbsp;&nbsp;
 
                                 <a href="edit.php?uid=<?php echo $row["id"]; ?>" style="color: blue"><i class="fa fa-edit" style="color:blue;"></i></a>&nbsp;&nbsp;
 

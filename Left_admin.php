@@ -45,6 +45,9 @@
                         <a href="student_course"><i class="menu-icon fa fa-laptop"></i>Student Admission</a>
                     </li>
                     <li>
+                        <a href="student_details"><i class="menu-icon fa fa-laptop"></i>Student Admission2</a>
+                    </li>
+                    <li>
                         <a href="addmore"><i class="menu-icon fa fa-laptop"></i>Multiple Products</a>
                     </li>
                     <!-- <li>

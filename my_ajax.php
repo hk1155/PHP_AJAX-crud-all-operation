@@ -437,4 +437,58 @@ if (isset($_POST['courseid'])) {
 }
 
 
+if (isset($_POST['userid'])) {
+	$id = $_POST['userid'];
+
+	$d = "DELETE FROM tbl_user WHERE id='" . $id . "'";
+	$rs = mysqli_query($con, $d);
+
+	if ($rs) {
+		echo 1;
+		//Delete Successfully
+	} else {
+
+		echo 0;
+		//user course is already is in used
+	}
+}
+
+
+
+
+
+if (isset($_POST['coursestatus']))    //Course Toggle
+{
+	$courseid = $_POST['coursestatus'];
+	$data = "";
+
+	$check = "SELECT * FROM tbl_stcourse1 where id='" . $courseid . "'";
+	$rscheck = mysqli_query($con, $check);
+	$rowcat = mysqli_fetch_assoc($rscheck);
+
+	if ($rowcat['status'] == 1) {
+		$upcat = "UPDATE tbl_stcourse1 SET status='0' WHERE id='" . $courseid . "'";
+	} else {
+		$upcat = "UPDATE tbl_stcourse1 SET status='1' WHERE id='" . $courseid . "'";
+	}
+
+	$rsupcat = mysqli_query($con, $upcat);
+
+	if ($rsupcat) {
+		$select = "SELECT * FROM tbl_stcourse1 WHERE id='" . $courseid . "'";
+		$rselect = mysqli_query($con, $select);
+		$rowcat2 = mysqli_fetch_assoc($rselect);
+
+		if ($rowcat2['status'] == 1) {
+			$data = "<div><a href='javascript:void(0);' onclick='fnstatuscourse(\"" . $rowcat2['id'] . "\");'  style='color:green;'><i class='fa fa-toggle-on'></i></a></div>";
+		} else {
+			$data = "<div><a href='javascript:void(0);' onclick='fnstatuscourse(\"" . $rowcat2['id'] . "\");'  style='color:red;'><i class='fa fa-toggle-off'></i></a></div>";
+		}
+
+		echo $data;
+	} else {
+		echo '0';
+	}
+}
+
 ?>

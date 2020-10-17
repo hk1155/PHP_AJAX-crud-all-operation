@@ -74,7 +74,7 @@ function course($con)
                                                 <?php echo course($con); ?>
                                             </select></td>
                                         <td><input type="number" name="price[]" placeholder="Enter Price" id="price" class="form-control name_list" /></td>
-                                        <td><button type="button" name="add" id="add" onclick="fnstudentcourse()" class="btn btn-success">Add More</button></td>
+
                                     </tr>
                                 </table>
 
@@ -100,12 +100,6 @@ function course($con)
     include './Script_admin.php';
     ?>
     <script>
-        function fnstudentcourse() {
-            var i = 0;
-            i++;
-            $('#newrow').append('<tr id="row' + i + '"><td><select name=course[] id="course" class="form-control"><option value="">--Select Course--</option><?php echo course($con);  ?></select></td><td><input type="number"  name="price[]" placeholder="Enter your Price" id="price" class="form-control name_list" /></td><td><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn_remove">X</button></td></tr>');
-        }
-
         function fnsavestudentcourse() {
             // alert('okok');
             var hh = $("#ddstudent").val();
@@ -118,14 +112,27 @@ function course($con)
 
                 if (c != "" && p != "") {
                     $.ajax({
-                        url: "my_ajax3.php",
+                        url: "my_ajax4.php",
                         method: "POST",
-                        data: $('#stcourse').serialize(),
+                        data: {
+                            stid: hh,
+                            course: c,
+                            price: p
+                        },
                         success: function(data) {
-                            alert(data);
-                            $('#stcourse')[0].reset();
-                            $('#stcourse')[1].reset();
-                            $('#stcourse')[2].reset();
+                            if (data == 1) {
+                                alert('Record Inserted Successfully');
+                                $("#ddstudent").val("");
+                                $("#course").val("");
+                                $("#price").val("");
+
+                            } else if (data == 2) {
+
+                                alert('Course is Exists with Same Student');
+
+                            } else {
+                                alert(data);
+                            }
                         }
                     });
                 } else {
