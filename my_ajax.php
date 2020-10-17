@@ -436,6 +436,18 @@ if (isset($_POST['courseid'])) {
 	echo $row['price'];
 }
 
+if (isset($_POST['fstid'])) {
+	$data = [];
+	$id = $_POST['fstid'];
+	$select = "SELECT * FROM tbl_payment where stid='" . $id . "'";
+	$res = mysqli_query($con, $select);
+	$row = mysqli_fetch_assoc($res);
+
+	$data['pending'] = $row['pendingamount'];
+	$data['final'] = $row['finalamount'];
+	echo json_encode($data, true);
+}
+
 
 if (isset($_POST['userid'])) {
 	$id = $_POST['userid'];
@@ -488,6 +500,41 @@ if (isset($_POST['coursestatus']))    //Course Toggle
 		echo $data;
 	} else {
 		echo '0';
+	}
+}
+
+if (isset($_POST['stid'])) {
+
+	$stid = $_POST['stid'];
+	$amount = $_POST['fa'];
+	$receive = $_POST['ra'];
+	$pending = $_POST['pa'];
+	$st = 'completed';
+
+	if ($receive > $pending) {
+		echo 2;
+		//receive amount is not greater than final amount
+
+	} else {
+
+		$finalpending = $pending - $receive;
+
+		if ($finalpending == 0) {
+
+			$up = "UPDATE tbl_payment SET receivedamount='" . $receive . "',pendingamount='" . $finalpending . "',status='" . $st . "' where stid='" . $stid . "'";
+			//Status Change to Completed
+		} else {
+			$up = "UPDATE tbl_payment SET receivedamount='" . $receive . "',pendingamount='" . $finalpending . "' where stid='" . $stid . "'";
+		}
+		$resultup = mysqli_query($con, $up);
+
+		if ($resultup) {
+			echo 1;
+			//Record Updated Successfully
+		} else {
+			echo 0;
+			//Something Went Wrong
+		}
 	}
 }
 

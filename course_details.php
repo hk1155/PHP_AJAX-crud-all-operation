@@ -10,7 +10,6 @@ $result1 = mysqli_query($con, $select);
 $temprow = mysqli_fetch_assoc($result1);
 ?>
 <html>
-
 <head>
     <title>My Admin</title>
     <?php

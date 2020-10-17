@@ -122,8 +122,6 @@ $result1 = mysqli_query($con, $query1);
                                 ?>
                             </tbody>
 
-
-
                         </table>
                     </div>
                 </div>

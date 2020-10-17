@@ -120,9 +120,10 @@ function course($con)
                             price: p
                         },
                         success: function(data) {
+                            //alert(data);
                             if (data == 1) {
                                 alert('Record Inserted Successfully');
-                                $("#ddstudent").val("");
+                                // $("#ddstudent").val("");
                                 $("#course").val("");
                                 $("#price").val("");
 

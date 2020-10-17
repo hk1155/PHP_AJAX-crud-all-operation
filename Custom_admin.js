@@ -918,3 +918,68 @@ function fnstatuscourse(courseid) {
 
   });
 }
+
+function fnstudentfees() {
+  //alert('okok');
+  var fstid = $("#ppstudent").val();
+  //alert(fstid);
+  $.ajax({
+
+    url: 'my_ajax.php',
+    method: 'POST',
+    data: {
+      fstid: fstid
+    },
+    success: function (result) {
+      //alert(result);
+      var dataresult = jQuery.parseJSON(result);
+      //alert(dataresult);
+      $("#txtfinalamount").val(dataresult['final']);
+      $("#txtpendingamt").val(dataresult['pending']);
+
+    }
+  });
+}
+
+function btnaddfees() {
+
+  var stid = $("#ppstudent").val();
+  var famount = $("#txtfinalamount").val();
+  var ramount = $("#txtreceiveamt").val();
+  var pamount = $("#txtpendingamt").val();
+
+  if (stid != "" && famount != "" && ramount != "" && pamount != "") {
+
+    $.ajax({
+
+      url: 'my_ajax.php',
+      method: 'POST',
+      data: { stid: stid, fa: famount, ra: ramount, pa: pamount },
+      success: function (result) {
+        //alert(result);
+
+        if (result == 1) {
+          $("#ppstudent").val("");
+          $("#txtfinalamount").val("");
+          $("#txtreceiveamt").val("");
+          $("#txtpendingamt").val("");
+          alert('Record Added');
+        }
+        else if (result == 2) {
+          alert('Please Add receive amount less than Pending Amount');
+        }
+        else if (result == 0) {
+          alert(result);
+        }
+        else {
+          alert(result);
+        }
+      }
+
+    });
+  }
+  else {
+    alert('Please Fill The Details');
+  }
+
+}
