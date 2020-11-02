@@ -80,8 +80,8 @@ $rs = mysqli_query($con, $select);
                                                             <a href="javascript:void(0);" onclick="fncatdelete(<?php echo $row['catid']; ?>);" class="delete" style="color:red;"><i class="fa fa-trash" style="color:red;"></i></a>&nbsp;&nbsp;
                                                             <a href="editcat.php?ucid=<?php echo $row["catid"]; ?>" style="color: blue"><i class="fa fa-edit" style="color:blue;"></i></a>&nbsp;&nbsp;
 
-                                                            <?php
-                                                            if ($row['status'] == 1) {
+                                                         <?php
+                                                           if ($row['status'] == 1) {
                                                             ?>
                                                                 <div id="toglecat<?php echo $row['catid']; ?>"> <a href="javascript:void(0)" onclick="fnactivecat(<?php echo $row['catid'];  ?>);"><i class="fa fa-toggle-on" style="color:green;"></i></a></div>
 

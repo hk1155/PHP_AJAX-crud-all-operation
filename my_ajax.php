@@ -93,18 +93,18 @@ if (isset($_POST['namedata']))    //New User records Insert
 	} else {
 		if ($password == $cpassword) {
 
-			$url = "www.way2sms.com/api/v1/sendCampaign";
-			$motp = urlencode($rand);
-			$curl = curl_init();
-			curl_setopt($curl, CURLOPT_POST, 1); // set post data to true
-			curl_setopt($curl, CURLOPT_POSTFIELDS, "apikey=HVUT6FRQ85O0BZIEDCI9PAAMLSHR3XPM&secret=JHI7L0XL0O44CFVW&usetype=stage&phone=$contact&senderid=02McCu&message=[$motp]");
-			// query parameter values must be given without squarebrackets.
-			// Optional Authentication:
-			curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-			curl_setopt($curl, CURLOPT_URL, $url);
-			curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-			$result = curl_exec($curl);
-			curl_close($curl);
+			// $url = "www.way2sms.com/api/v1/sendCampaign";
+			// $motp = urlencode($rand);
+			// $curl = curl_init();
+			// curl_setopt($curl, CURLOPT_POST, 1); // set post data to true
+			// curl_setopt($curl, CURLOPT_POSTFIELDS, "apikey=HVUT6FRQ85O0BZIEDCI9PAAMLSHR3XPM&secret=JHI7L0XL0O44CFVW&usetype=stage&phone=$contact&senderid=02McCu&message=[$motp]");
+			// // query parameter values must be given without squarebrackets.
+			// // Optional Authentication:
+			// curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+			// curl_setopt($curl, CURLOPT_URL, $url);
+			// curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+			// $result = curl_exec($curl);
+			// curl_close($curl);
 			//echo $result;
 
 			$mail = new PHPMailer;

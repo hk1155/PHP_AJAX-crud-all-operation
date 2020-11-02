@@ -83,9 +83,9 @@ $rscat = mysqli_query($con, $select);
                             <form action="#" method="post" enctype="multipart/form-data" class="form-horizontal" id="fmreg">
 
 
-                                <div class="row form-group">
+                                <!-- <div class="row form-group">
                                     <div class="col-12 col-md-6">
-                                        <!-- <select name="ddcompany" id="ddcompany" onchange="fncompany();" class="form-control">
+                                        <select name="ddcompany" id="ddcompany" onchange="fncompany();" class="form-control">
                                                 <option value=" ">--Select Company--</option>
                                                 <?php
 
@@ -98,18 +98,19 @@ $rscat = mysqli_query($con, $select);
                                                 }
 
                                                         ?>
-                                            </select> -->
+                                            </select>
                                     </div>
 
-                                    <!-- <div class="col-12 col-md-6">
+                                    <div class="col-12 col-md-6">
                                             <select name="ddcategory" id="ddcategory" disabled="" class="form-control">
                                                 <option value=" ">--Select Category--</option>
                                                 
                                             </select>
-                                        </div> -->
+                                        </div>
 
-                                </div>
-
+                                </div> -->
+                        <div class="row form-group">
+                            <div class="col-12">
                                 <select name="ddcategory" id="ddcategory" class="form-control">
                                     <option value=" ">--Select Category--</option>
                                     <?php
@@ -123,7 +124,8 @@ $rscat = mysqli_query($con, $select);
                                     }
                                    ?>
                                 </select>
-
+                            </div>
+                            </div>
                                 <div class="row form-group">
 
                                     <div class="col-12 col-md-6"><input type="text" id="txtproduct" name="txtproduct" placeholder="Product Name or Code" class="form-control"></div>

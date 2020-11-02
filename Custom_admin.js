@@ -96,6 +96,7 @@ function emailchecker()   //email checker validator
   });
 }
 
+//password Checker
 var check = function () {
   if (document.getElementById('txtpassword').value ==
     document.getElementById('txtcpassword').value) {
